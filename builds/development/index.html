@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <title>MeWL</title>
+    <base href="/">
+     <script src="js/lib/es6-shim/es6-shim.min.js"></script>
+
+    <script src="js/lib/zone.js/dist/zone.js"></script>
+    <script src="js/lib/reflect-metadata/Reflect.js"></script>
+    <script src="js/lib/systemjs/dist/system.src.js"></script>
+ 
+    
+     <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+    <script>
+        System.import('js')
+                .then(null, console.error.bind(console));
+    </script>
+</head>
+
+<body>
+    <my-app>Loading..</my-app>
+</body>
+
+</html>

@@ -1,0 +1,3 @@
+<section>
+    <media-item (deleteMedia)="OnDeleteMedia(mediaItem)" [ngClass]="{'medium-movies': mediaItem.medium === 'Movies', 'medium-series': mediaItem.medium === 'Series'}" *ngFor="#mediaItem of mediaItems" [mediaItem]="mediaItem"></media-item>
+</section>

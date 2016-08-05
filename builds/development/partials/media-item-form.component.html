@@ -1,0 +1,35 @@
+<header>
+    <h2>Add Media to Watch</h2>
+</header>
+<form (ngSubmit)="onSubmit(form.value)" [ngFormModel]="form">
+    <ul>
+        <li>
+            <label for="medium">Medium</label>
+            <select ngControl="medium" name="medium" id="medium" required>
+                <option *ngFor="#medium of lookUpLists.mediums" value="{{medium}}">{{medium}}</option>
+            </select>
+        </li>
+        <li>
+            <label for="name">Name</label>
+            <input #name="ngForm" ngControl="name" type="text" name="name" id="name" required>
+        </li>
+        <div class="error">
+            <p *ngIf='name.errors?.pattern'>name contains invalid characters</p>
+            <p *ngIf='name.errors?.required'>name is mandatory</p>
+        </div>
+        <li>
+            <label for="category">Category</label>
+            <select ngControl="category" name="category" id="category">
+                <option *ngFor="#genre of lookUpLists.genres" value="{{genre}}">{{genre}}</option>
+            </select>
+        </li>
+        <li>
+            <label for="year">Year</label>
+            <input #year="ngForm" ngControl="year" type="text" name="year" id="year" maxlength="4">
+        </li>
+        <div class="error">
+            <p *ngIf='year.errors?.year'>year should be between {{year.errors?.year.minyear}} and {{year.errors?.year.maxyear}}</p>
+        </div>
+    </ul>
+    <button type="submit" [disabled]=!form.valid>Save</button>
+</form>
